@@ -1,13 +1,3 @@
----
-name: バグ、不具合レポート
-about: バグ、不具合の報告
-title: ''
-labels: bug, enhancement, high-priority, in-progress, low-priority, question, resolved,
-  system-issue, translation-issue
-assignees: ''
-
----
-
 name: バグ報告
 description: アプリケーションの問題を報告
 labels: ["bug"]
