@@ -1,0 +1,72 @@
+name: バグ報告
+description: アプリケーションの問題を報告
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        SmartPaperの改善にご協力いただき、ありがとうございます。
+        以下のフォームに必要事項を記入してください。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 発生している問題
+      description: どのような問題が発生しているか、詳しく教えてください。
+      placeholder: 例）PDFファイルをアップロードした後、翻訳が開始されない
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: 再現手順
+      description: 問題が発生するまでの手順を教えてください。
+      placeholder: |
+        1. PDFファイルをアップロード
+        2. '翻訳開始'ボタンをクリック
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 期待される動作
+      description: 本来どのように動作するべきだったか教えてください。
+      placeholder: 翻訳が開始され、進捗バーが表示される
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 使用しているブラウザ
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - その他
+    validations:
+      required: true
+
+  - type: textarea
+    id: pdf-info
+    attributes:
+      label: PDFファイル情報
+      description: PDFファイルに関する情報（サイズ、ページ数など）
+      placeholder: |
+        - ファイルサイズ: 2.1MB
+        - ページ数: 10ページ
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: 補足情報
+      description: その他、問題に関連する情報があれば記入してください。
+    validations:
+      required: false
