@@ -1,72 +1,64 @@
-name: バグ報告
-description: アプリケーションの問題を報告
-labels: ["bug"]
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
 body:
   - type: markdown
     attributes:
       value: |
-        SmartPaperの改善にご協力いただき、ありがとうございます。
-        以下のフォームに必要事項を記入してください。
-
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
   - type: textarea
     id: what-happened
     attributes:
-      label: 発生している問題
-      description: どのような問題が発生しているか、詳しく教えてください。
-      placeholder: 例）PDFファイルをアップロードした後、翻訳が開始されない
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
     validations:
       required: true
-
-  - type: textarea
-    id: reproduction-steps
+  - type: dropdown
+    id: version
     attributes:
-      label: 再現手順
-      description: 問題が発生するまでの手順を教えてください。
-      placeholder: |
-        1. PDFファイルをアップロード
-        2. '翻訳開始'ボタンをクリック
-        3. ...
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
     validations:
       required: true
-
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: 期待される動作
-      description: 本来どのように動作するべきだったか教えてください。
-      placeholder: 翻訳が開始され、進捗バーが表示される
-    validations:
-      required: true
-
   - type: dropdown
     id: browsers
     attributes:
-      label: 使用しているブラウザ
+      label: What browsers are you seeing the problem on?
       multiple: true
       options:
-        - Chrome
         - Firefox
+        - Chrome
         - Safari
-        - Edge
-        - その他
-    validations:
-      required: true
-
+        - Microsoft Edge
   - type: textarea
-    id: pdf-info
+    id: logs
     attributes:
-      label: PDFファイル情報
-      description: PDFファイルに関する情報（サイズ、ページ数など）
-      placeholder: |
-        - ファイルサイズ: 2.1MB
-        - ページ数: 10ページ
-    validations:
-      required: false
-
-  - type: textarea
-    id: additional-info
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
     attributes:
-      label: 補足情報
-      description: その他、問題に関連する情報があれば記入してください。
-    validations:
-      required: false
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
